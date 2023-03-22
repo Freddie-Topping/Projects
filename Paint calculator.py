@@ -110,3 +110,11 @@ if room_type == 5:
 #calc and print volume of room
 room_volume = floor_area * height
 print("The total volume of the room is",round(room_volume,3),"metres cubed.")
+
+
+### This project is now complete. Should i had have more time, i would've added consideration for doors, windows, and other room shapes. In addition, instead of using
+### the sine rule to calculate the area of the floor of the triangular prism, i would have instead just used the much simpler (b * h)/2, and only asked for one side's
+### length, and the length that is perpendicular to the stated side and intersects with another vertex.
+
+
+
