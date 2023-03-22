@@ -1,9 +1,13 @@
+#modules and libraries
+import math as m
+
 #allows user to select the general shape of their room out of a multitude of shapes
 room_type = int(input("""Using the numbers provided, choose the general shape of your room:
 1. cube/cuboid
 2. cylinder
 3. L shape
 4. T shape
+5. Triangular prism
 """))
 
 ### FOR CUBE/CUBOID###
@@ -81,8 +85,28 @@ if room_type == 4:
     wall_area = height * 2 * (longwidth + depth_longwidth + depth_shortwidth)
     print("You will need about",round(wall_area/6.5,1),"litres of paint to paint all of the walls.")
 #in above calculation, wall area is divided by 6.5. this is because according to Kraudelt Painting, one litre of paint
-#can paint about 6.5 metres squared of wall.
-    
+#can paint about 6.5 metres squared of wall.    
+
+###FOR TRIANGULAR PRISM###
+
+if room_type == 5:
+#inputting dimensions
+    length_a = int(input("Input the length of any wall in metres"))
+    length_b = int(input("Input the length of any other wall in metres"))
+    angle = int(input("Input the angle found between the two inputted walls in degrees"))
+    length_c = int(input("Input the length of the final wall in metres"))
+    height = int(input("Input the height in metres"))
+
+#calc and print the floor area
+    floor_area = ((1/2) * length_a * length_b * m.sin(m.radians(angle)))
+    print("The area of the floor is",floor_area,"metres squared.")
+
+#calc and print paint for walls
+    wall_area = height * (length_a + length_b + length_c)
+    print("You will need about",round(wall_area/6.5,1),"litres of paint to paint all of the walls.")
+#in above calculation, wall area is divided by 6.5. this is because according to Kraudelt Painting, one litre of paint
+#can paint about 6.5 metres squared of wall.  
+
 #calc and print volume of room
 room_volume = floor_area * height
-print("The total volume of the room is",room_volume,"metres cubed.")
+print("The total volume of the room is",round(room_volume,3),"metres cubed.")
